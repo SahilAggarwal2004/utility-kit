@@ -76,14 +76,17 @@ function errorProne() { // Some error prone callback
   console.log('success')
 }
 retry(errorProne) // fail will be logged at most 3 (default) times until success is logged
-retry(errorProne, 8) // fail will be logged at most 8 times until success is logged
-retry(errorProne, 8, true) // each time failure occurs, the reason for failure will also be logged (here, Something went wrong)
+retry(errorProne, { retries: 8 }) // fail will be logged at most 8 times until success is logged
+retry(errorProne, { retries: 8, showError: true }) // each time failure occurs, the reason for failure will also be logged (here, Something went wrong)
 
 // Handles asynchronous callbacks too
 async function uploadFile(file); // A function that uploads a file asynchronously, resolving to the file link on success or rejecting on failure.
-let link = await retry(uploadFile, 4, true) // For callbacks with zero parameters
-link = await retry(async () => await uploadFile(file), 4, true) // For callbacks with non-zero parameters
-console.log(link) // link to the uploaded file if file upload successful in any of the 5(1+4) tries or undefined in case of failure
+let link = await retry(uploadFile) // For callbacks with zero parameters
+link = await retry(async () => await uploadFile(file)) // For callbacks with non-zero parameters
+console.log(link) // link to the uploaded file if file upload successful in any of the 4(1+3) tries or undefined in case of failure
+
+// onSuccess is a function with a single parameter which will have the value that is returned by the callback function and will be invoked only in case on success
+retry(async () => await uploadFile(file), { onSuccess: link => console.log(link), retries: 2 }) // link to the uploaded file will be logged only in case of success in any of the 3(1+2) tries.
 ```
 ## Author
 [Sahil Aggarwal](https://www.github.com/SahilAggarwal2004)
