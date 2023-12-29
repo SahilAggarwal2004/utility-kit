@@ -1,5 +1,4 @@
-import { maximumNumber, minimumNumber, probability } from "./math"
-import { generateOTP, randomAdjective, randomAnimal, randomElement, randomName, randomNumber } from "./random"
-import { wait } from "./time"
-import { retry, retryAsync } from "./utility"
-export { generateOTP, maximumNumber, minimumNumber, probability, randomAdjective, randomAnimal, randomElement, randomName, randomNumber, retry, retryAsync, wait }
+export { maximumNumber, minimumNumber, probability } from "./math"
+export { generateOTP, randomAdjective, randomAnimal, randomElement, randomName, randomNumber } from "./random"
+export { wait } from "./time"
+export { retry, retryAsync } from "./utility"

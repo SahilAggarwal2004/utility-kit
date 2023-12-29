@@ -1,6 +1,6 @@
 {
   "name": "utility-kit",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "An easy to use library that provides miscellaneous but very useful functions that are commonly used in most javascript projects.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -14,7 +14,19 @@
     "type": "git",
     "url": "git+https://github.com/SahilAggarwal2004/utility-kit.git"
   },
-  "keywords": ["utility-kit", "utilkit", "utils", "javascript", "js", "random", "math", "time", "utility", "otp-generator", "random-names-generator"],
+  "keywords": [
+    "utility-kit",
+    "utils",
+    "javascript",
+    "js",
+    "random",
+    "math",
+    "time",
+    "utility",
+    "otp-generator",
+    "random-name-generator",
+    "typescript"
+  ],
   "author": "Sahil Aggarwal",
   "license": "MIT",
   "bugs": {
