@@ -1,4 +1,4 @@
-type RetryOptions<T> = { onSuccess?: ((result: T) => any) | null; retries?: number; showError?: boolean };
+export type RetryOptions<T> = { onSuccess?: ((result: T) => any) | null; retries?: number; showError?: boolean };
 
 export function retry<T>(cb: () => T, { onSuccess = null, retries = 3, showError = false }: RetryOptions<T> = {}) {
   try {
