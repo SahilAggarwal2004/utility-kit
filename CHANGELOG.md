@@ -1,4 +1,4 @@
-# 0.3.8 (05-04-2024)
+# 0.3.9 (05-04-2024)
 
 - **changed:** switched from [pnpm](https://pnpm.io/) to [bun](https://bun.sh/)
 
