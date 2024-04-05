@@ -1,6 +1,6 @@
 {
   "name": "utility-kit",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "An easy to use library that provides miscellaneous but very useful functions that are commonly used in most javascript projects.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -8,7 +8,7 @@
   "scripts": {
     "esm": "tsc",
     "cjs": "tsc --module commonjs --outDir dist/cjs --declaration false",
-    "build": "pnpm i && pnpm run esm && pnpm run cjs"
+    "build": "bun i && bun esm && bun cjs"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,6 @@
   },
   "homepage": "https://github.com/SahilAggarwal2004/utility-kit#readme",
   "devDependencies": {
-    "@types/node": "^20.11.30"
+    "@types/node": "^20.12.4"
   }
 }

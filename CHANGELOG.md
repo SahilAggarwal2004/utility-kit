@@ -1,4 +1,8 @@
-# 0.3.5 (17-02-2024)
+# 0.3.8 (05-04-2024)
+
+- **changed:** switched from [pnpm](https://pnpm.io/) to [bun](https://bun.sh/)
+
+## 0.3.5 (17-02-2024)
 
 - **formatting:** improved code formatting for better readability and consistency.
 
