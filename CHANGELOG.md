@@ -1,4 +1,8 @@
-# 0.3.9 (05-04-2024)
+# 0.4.0 (10-04-2024)
+
+- **added:** `random` function. See [usage of random](https://www.npmjs.com/package/utility-kit#random)
+
+## 0.3.9 (05-04-2024)
 
 - **changed:** switched from [pnpm](https://pnpm.io/) to [bun](https://bun.sh/)
 
