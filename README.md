@@ -38,7 +38,11 @@ To install utility-kit
 #### Random
 
 ```javascript
-import { randomNumber, randomElement, randomAdjective, randomAnimal, randomName, generateOTP } from "utility-kit";
+import { random, randomNumber, randomElement, randomAdjective, randomAnimal, randomName, generateOTP } from "utility-kit";
+
+console.log(random()) // A drop-in and secure replacement for Math.random(), offering truly random numbers generated using cryptographic sources.
+
+console.log(random(16)) // Generates a truly random number using 16 bytes, providing a wider range and higher precision. The number of bytes ranges from 1-127 with 8 being default.
 
 console.log(randomNumber(10, 20)); // Any number between 10 and 20 (both numbers included) will be logged
 

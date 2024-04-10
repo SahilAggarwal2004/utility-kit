@@ -1,6 +1,6 @@
 {
   "name": "utility-kit",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "description": "An easy to use library that provides miscellaneous but very useful functions that are commonly used in most javascript projects.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -34,6 +34,6 @@
   },
   "homepage": "https://github.com/SahilAggarwal2004/utility-kit#readme",
   "devDependencies": {
-    "@types/node": "^20.12.4"
+    "@types/node": "^20.12.7"
   }
 }
