@@ -85,7 +85,7 @@ test(1000).then((time) => console.log(time)); // ~1000
 
 #### Utility
 
-```ts
+```js
 import { probability, retry, retryAsync } from "utility-kit";
 
 // Some error prone callback
