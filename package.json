@@ -1,6 +1,6 @@
 {
   "name": "utility-kit",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "An easy to use library that provides miscellaneous but very useful functions that are commonly used in most javascript projects.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -8,23 +8,24 @@
   "scripts": {
     "esm": "tsc",
     "cjs": "tsc --module commonjs --outDir dist/cjs --declaration false",
-    "build": "bun i && bun esm && bun cjs"
+    "build": "pnpm i && pnpm run esm && pnpm run cjs"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SahilAggarwal2004/utility-kit.git"
   },
   "keywords": [
-    "utility-kit",
     "utils",
-    "javascript",
-    "js",
+    "utility-functions",
     "random",
     "math",
     "time",
-    "utility",
     "otp-generator",
     "random-name-generator",
+    "memoize",
+    "helpers",
+    "utility-kit",
+    "javascript",
     "typescript"
   ],
   "author": "Sahil Aggarwal",
@@ -34,6 +35,7 @@
   },
   "homepage": "https://github.com/SahilAggarwal2004/utility-kit#readme",
   "devDependencies": {
-    "@types/node": "^20.12.7"
+    "@types/node": "^24.3.1",
+    "typescript": "^5.9.2"
   }
 }

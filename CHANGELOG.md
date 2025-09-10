@@ -1,4 +1,10 @@
-# 0.5.0 (27-04-2024)
+# 0.6.0 (10-09-2025)
+
+- **added:** `memoize` function for caching expensive computations. See [usage of memoize](https://www.npmjs.com/package/utility-kit#cache)
+- **added:** `typescript` as a `devDependency`
+- **changed:** switched from [bun](https://bun.sh/) to [pnpm](https://pnpm.io/)
+
+## 0.5.0 (27-04-2024)
 
 - **added:** `initialDelay` and `delayIncrement` options in `retryAsync` function. See [usage of retryAsync](https://www.npmjs.com/package/utility-kit#utility)
 - **removed:** `showError` option in favour of `onError` callback in `retry` and `retryAsync` functions. See [usage of retry and retryAsync](https://www.npmjs.com/package/utility-kit#utility)

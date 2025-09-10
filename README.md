@@ -4,6 +4,7 @@ An easy to use library that provides miscellaneous but very useful functions tha
 
 ## Features
 
+- Function memoization
 - Generate random number
 - Pick random element from array
 - Generate random name
@@ -33,7 +34,48 @@ To install utility-kit
 
 ## Usage
 
-`utility-kit` can be used in almost any javascript project to achieve the above mentioned [features](#Features) with no extra effort. The functions provided by `utility-kit` may be categorised into 4 categories:
+`utility-kit` can be used in almost any javascript project to achieve the above mentioned [features](#Features) with no extra effort. The functions provided by `utility-kit` may be categorised into 5 categories:
+
+#### Cache
+
+```js
+import { memoize } from "utility-kit";
+
+// Expensive computation function
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+// Create memoized version that caches results
+const memoizedFibonacci = memoize(fibonacci);
+
+console.log(memoizedFibonacci(40)); // Calculated once and cached
+console.log(memoizedFibonacci(40)); // Returns cached result instantly
+
+// Works with multiple arguments
+function expensiveOperation(a, b, c) {
+  console.log("Computing...");
+  return a * b + c;
+}
+
+const memoizedOperation = memoize(expensiveOperation);
+memoizedOperation(2, 3, 4); // "Computing..." logged, returns 10
+memoizedOperation(2, 3, 4); // No log, returns cached 10
+memoizedOperation(5, 6, 7); // "Computing..." logged, returns 37
+```
+
+#### Math
+
+```js
+import { probability, minimumNumber, maximumNumber } from "utility-kit";
+
+if (probability(0.5)) console.log(true); // There is a 50% chance that true will be logged
+
+const array = [89, 6, 99, 2, 50, 10];
+console.log(minimumNumber(array)); // 2
+console.log(maximumNumber(array)); // 99
+```
 
 #### Random
 
@@ -55,18 +97,6 @@ console.log(randomAnimal()); // Any one animal from a list of 200 animals will b
 console.log(randomName("-")); // A combination of randomAdjective() and randomAnimal() will be logged with a "-" separator in between. Default separator is " "
 
 console.log(generateOTP(6)); // A 6 digit string OTP will be logged
-```
-
-#### Math
-
-```js
-import { probability, minimumNumber, maximumNumber } from "utility-kit";
-
-if (probability(0.5)) console.log(true); // There is a 50% chance that true will be logged
-
-const array = [89, 6, 99, 2, 50, 10];
-console.log(minimumNumber(array)); // 2
-console.log(maximumNumber(array)); // 99
 ```
 
 #### Time
@@ -124,7 +154,3 @@ await retryAsync(async () => await uploadFile(file), {
   onError: console.log,
 });
 ```
-
-## Author
-
-[Sahil Aggarwal](https://www.github.com/SahilAggarwal2004)
