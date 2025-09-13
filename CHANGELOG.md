@@ -1,4 +1,8 @@
-# 0.6.1 (13-09-2025)
+# 0.6.2 (13-09-2025)
+
+- **build:** add `tsup` for unified CJS and ESM build
+
+## 0.6.1 (13-09-2025)
 
 - **changed:** unified implementation of `random` function for consistent behavior across environments. See [usage of random](https://www.npmjs.com/package/utility-kit#random)
 - **moved:** `probability` function from `math` module to `random` module. See [usage of probability](https://www.npmjs.com/package/utility-kit#random)
