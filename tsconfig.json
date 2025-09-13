@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2016",
-    "module": "ESNext",
+    "target": "es2016",
     "declaration": true,
     "noUnusedLocals": true,
     "removeComments": true,
@@ -10,9 +9,7 @@
     "strict": true,
     "skipLibCheck": true,
     "rootDir": "src",
-    "outDir": "dist/esm",
-    "lib": ["ES2016", "ESNext"],
-    "moduleResolution": "node",
     "noImplicitAny": true
-  }
+  },
+  "include": ["src"]
 }

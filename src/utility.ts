@@ -1,4 +1,4 @@
-import { wait } from "./time";
+import { wait } from "./time.js";
 
 export type RetryOptions<T> = {
   retries?: number;

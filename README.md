@@ -68,9 +68,7 @@ memoizedOperation(5, 6, 7); // "Computing..." logged, returns 37
 #### Math
 
 ```js
-import { probability, minimumNumber, maximumNumber } from "utility-kit";
-
-if (probability(0.5)) console.log(true); // There is a 50% chance that true will be logged
+import { maximumNumber, minimumNumber } from "utility-kit";
 
 const array = [89, 6, 99, 2, 50, 10];
 console.log(minimumNumber(array)); // 2
@@ -80,7 +78,7 @@ console.log(maximumNumber(array)); // 99
 #### Random
 
 ```js
-import { random, randomNumber, randomElement, randomAdjective, randomAnimal, randomName, generateOTP } from "utility-kit";
+import { generateOTP, probability, random, randomAdjective, randomAnimal, randomElement, randomName, randomNumber } from "utility-kit";
 
 console.log(random()); // A drop-in and secure replacement for Math.random(), offering truly random numbers generated using cryptographic sources.
 
@@ -97,6 +95,8 @@ console.log(randomAnimal()); // Any one animal from a list of 200 animals will b
 console.log(randomName("-")); // A combination of randomAdjective() and randomAnimal() will be logged with a "-" separator in between. Default separator is " "
 
 console.log(generateOTP(6)); // A 6 digit string OTP will be logged
+
+if (probability(0.5)) console.log(true); // There is a 50% chance that true will be logged
 ```
 
 #### Time
@@ -146,7 +146,7 @@ async function uploadFile(file); // A function that uploads a file asynchronousl
 const link = await retryAsync(async () => await uploadFile(file), { retries: 4 });
 console.log(link); // link to the uploaded file if file upload successful in any of the 5(1+4) tries or undefined in case of failure
 
-// In below example, if file upload fails, then retryAsync will wait for 1000ms (initialDelay) before retrying to upload the file and this wait will increase by 500ms (delayIncrement) for every next retry.
+// In below example, if file upload fails, retryAsync will wait for 1000ms (initialDelay) before retrying to upload the file and this wait will increase by 500ms (delayIncrement) for every next retry.
 await retryAsync(async () => await uploadFile(file), {
   initialDelay: 1000, // In ms, default is 0
   delayIncement: 500, // In ms, default is 0

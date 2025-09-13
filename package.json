@@ -1,41 +1,55 @@
 {
   "name": "utility-kit",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "An easy to use library that provides miscellaneous but very useful functions that are commonly used in most javascript projects.",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
-  "scripts": {
-    "esm": "tsc",
-    "cjs": "tsc --module commonjs --outDir dist/cjs --declaration false",
-    "build": "pnpm i && pnpm run esm && pnpm run cjs"
-  },
+  "license": "MIT",
+  "author": "Sahil Aggarwal",
+  "homepage": "https://github.com/SahilAggarwal2004/utility-kit#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SahilAggarwal2004/utility-kit.git"
   },
-  "keywords": [
-    "utils",
-    "utility-functions",
-    "random",
-    "math",
-    "time",
-    "otp-generator",
-    "random-name-generator",
-    "memoize",
-    "helpers",
-    "utility-kit",
-    "javascript",
-    "typescript"
-  ],
-  "author": "Sahil Aggarwal",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/SahilAggarwal2004/utility-kit/issues"
   },
-  "homepage": "https://github.com/SahilAggarwal2004/utility-kit#readme",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/esm/index.d.ts"
+    }
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm i && pnpm run esm && pnpm run cjs",
+    "cjs": "tsc -p tsconfig.cjs.json",
+    "esm": "tsc -p tsconfig.esm.json",
+    "prettier": "prettier-package-json --write package.json"
+  },
+  "sideEffects": false,
+  "types": "dist/esm/index.d.ts",
   "devDependencies": {
-    "@types/node": "^24.3.1",
+    "@types/node": "^24.3.3",
+    "prettier-package-json": "^2.8.0",
     "typescript": "^5.9.2"
-  }
+  },
+  "keywords": [
+    "helpers",
+    "javascript",
+    "math",
+    "memoize",
+    "otp-generator",
+    "random",
+    "random-name-generator",
+    "time",
+    "typescript",
+    "utility-functions",
+    "utility-kit",
+    "utils"
+  ]
 }
