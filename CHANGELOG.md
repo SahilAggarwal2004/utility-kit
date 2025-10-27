@@ -1,4 +1,9 @@
-# 0.6.2 (13-09-2025)
+## 0.7.0 (27-10-2025)
+
+- **breaking:** `retry` and `retryAsync` now return a unified `Result<T, E>` object instead of directly returning the callback’s output. This enables consistent handling of success and failure across all utilities.
+- **added:** `tryCatch` and `tryCatchAsync` utilities for safe, structured error handling. See [usage](https://www.npmjs.com/package/utility-kit#utility)
+
+## 0.6.2 (13-09-2025)
 
 - **build:** add `tsup` for unified CJS and ESM build
 

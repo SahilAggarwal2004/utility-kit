@@ -12,6 +12,7 @@ An easy to use library that provides miscellaneous but very useful functions tha
 - Probability
 - Minimum/Maximum element of an array
 - Wait/Sleep function
+- TryCatch wrappers for safe and structured error handling
 - Retry wrapper with incremental delay
 
 ## Installation
@@ -116,9 +117,20 @@ test(1000).then((time) => console.log(time)); // ~1000
 #### Utility
 
 ```js
-import { probability, retry, retryAsync } from "utility-kit";
+import { probability, retry, retryAsync, tryCatch, tryCatchAsync } from "utility-kit";
 
-// Some error prone callback
+// For safely handling errors without try-catch blocks manually
+// Returns a structured Result object with { success, data, error }
+const result = tryCatch(() => mightThrow());
+if (result.success) console.log("Success:", result.data);
+else console.error("Error:", result.error);
+
+// Async version
+const asyncResult = await tryCatchAsync(async () => await mightThrowAsync());
+if (asyncResult.success) console.log("Async success:", asyncResult.data);
+else console.error("Async error:", asyncResult.error);
+
+// Some error-prone callback
 function errorProne() {
   if (probability(0.5)) {
     console.log("fail");
@@ -127,29 +139,42 @@ function errorProne() {
   console.log("success");
   return "hurray";
 }
+
+// Retry wrapper (returns a structured Result<T, E> object)
+const result = retry(errorProne);
+if (result.success) console.log("Result:", result.data);
+else console.error("Error:", result.error);
+
 retry(errorProne); // "fail" will be logged at most 3 (default) times until "success" is logged
+
 retry(errorProne, { retries: 8 }); // "fail" will be logged at most 8 times until "success" is logged
+
 retry(errorProne, {
-  // onSuccess is a function with a single parameter which will have the value that is returned by the callback function and will be invoked only in case on success. Here, "hurray" will also be logged after "success".
+  // onSuccess is a function with a single parameter which will have the value returned by the callback and will be invoked only on success. Here, "hurray" will also be logged after "success".
   onSuccess: (result) => console.log(result),
-  // onError is a function with a single parameter which will contain the information about error that occured in callback function and will be invoked in case of failure. Here, error will be "Something went wrong"
+  // onError is a function with a single parameter which will contain the error thrown by the callback function and will be invoked on failure.
   onError: (error) => console.log(error),
 });
 
-// For functions with non-zero parameters
+// For functions with parameters
 function readChunk(file, chunkNumber);
+
 const chunk = retry(() => readChunk(file, 2));
-console.log(chunk); // either 2nd chunk of file in case of success or undefined in case of failure
+if (chunk.success) console.log("Read:", chunk.data);
+else console.error("Failed:", chunk.error);
 
 // For handling asynchronous callbacks or retrying after some incremental delay
 async function uploadFile(file); // A function that uploads a file asynchronously, resolving to the file link on success or rejecting on failure.
-const link = await retryAsync(async () => await uploadFile(file), { retries: 4 });
-console.log(link); // link to the uploaded file if file upload successful in any of the 5(1+4) tries or undefined in case of failure
 
-// In below example, if file upload fails, retryAsync will wait for 1000ms (initialDelay) before retrying to upload the file and this wait will increase by 500ms (delayIncrement) for every next retry.
+// retryAsync retries the async function and returns a structured Result<T, E>
+const link = await retryAsync(async () => await uploadFile(file), { retries: 4 });
+if (link.success) console.log("Uploaded:", link.data);
+else console.error("Error:", link.error);
+
+// In below example, if file upload fails, retryAsync will wait for 1000ms (initialDelay) before retrying to upload the file, and this wait will increase by 500ms (delayIncrement) for every next retry.
 await retryAsync(async () => await uploadFile(file), {
   initialDelay: 1000, // In ms, default is 0
-  delayIncement: 500, // In ms, default is 0
+  delayIncrement: 500, // In ms, default is 0
   onSuccess: console.log,
   onError: console.log,
 });
