@@ -36,7 +36,7 @@ export function retry<T, E = Error>(callback: () => T, { retries = 3, ...options
 
   onError?.(result.error);
 
-  if (retries > 0) return retry(callback, { retries: retries - 1, ...options });
+  if (retries) return retry(callback, { retries: retries - 1, ...options });
 
   return result;
 }
@@ -52,7 +52,7 @@ export async function retryAsync<T, E = Error>(callback: () => Promise<T>, { ret
 
   onError?.(result.error);
 
-  if (retries > 0) {
+  if (retries) {
     await wait(initialDelay);
     return await retryAsync(callback, { retries: retries - 1, initialDelay: initialDelay + delayIncrement, ...options });
   }

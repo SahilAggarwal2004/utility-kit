@@ -1,6 +1,6 @@
 {
   "name": "utility-kit",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "An easy to use library that provides miscellaneous but very useful functions that are commonly used in most javascript projects.",
   "license": "MIT",
   "author": "Sahil Aggarwal",
@@ -32,7 +32,7 @@
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
   "devDependencies": {
-    "@types/node": "^24.9.1",
+    "@types/node": "^24.9.2",
     "prettier-package-json": "^2.8.0",
     "tsup": "^8.5.0",
     "typescript": "^5.9.3"

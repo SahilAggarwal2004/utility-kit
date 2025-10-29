@@ -156,6 +156,10 @@ retry(errorProne, {
   onError: (error) => console.log(error),
 });
 
+// Infinite retry mode
+// If retries = -1, the function will retry indefinitely until success.
+retry(errorProne, { retries: -1 }); // Keeps retrying forever until "success" occurs
+
 // For functions with parameters
 function readChunk(file, chunkNumber);
 
@@ -177,5 +181,12 @@ await retryAsync(async () => await uploadFile(file), {
   delayIncrement: 500, // In ms, default is 0
   onSuccess: console.log,
   onError: console.log,
+});
+
+// Infinite retries for async
+await retryAsync(async () => await uploadFile(file), {
+  retries: -1, // Will keep retrying forever until success
+  initialDelay: 1000,
+  delayIncrement: 500,
 });
 ```
