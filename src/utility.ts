@@ -50,7 +50,7 @@ export async function retryAsync<T, E = Error>(callback: () => Promise<T>, { ret
     return result;
   }
 
-  onError?.(result.error);
+  await onError?.(result.error);
 
   if (retries) {
     await wait(initialDelay);

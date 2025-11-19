@@ -1,3 +1,7 @@
+# 0.7.2 (19-11-2025)
+
+- **fix:** Add missing await for onError in retryAsync error branch.
+
 ## 0.7.0 (27-10-2025)
 
 - **breaking:** `retry` and `retryAsync` now return a unified `Result<T, E>` object instead of directly returning the callback’s output. This enables consistent handling of success and failure across all utilities.
