@@ -40,7 +40,7 @@ To install utility-kit
 #### Cache
 
 ```js
-import { memoize } from "utility-kit";
+import { memoize } from "utility-kit/cache";
 
 // Expensive computation function
 function fibonacci(n) {
@@ -69,7 +69,7 @@ memoizedOperation(5, 6, 7); // "Computing..." logged, returns 37
 #### Math
 
 ```js
-import { maximumNumber, minimumNumber } from "utility-kit";
+import { maximumNumber, minimumNumber } from "utility-kit/math";
 
 const array = [89, 6, 99, 2, 50, 10];
 console.log(minimumNumber(array)); // 2
@@ -79,7 +79,7 @@ console.log(maximumNumber(array)); // 99
 #### Random
 
 ```js
-import { generateOTP, probability, random, randomAdjective, randomAnimal, randomElement, randomName, randomNumber } from "utility-kit";
+import { generateOTP, probability, random, randomAdjective, randomAnimal, randomElement, randomName, randomNumber } from "utility-kit/random";
 
 console.log(random()); // A drop-in and secure replacement for Math.random(), offering truly random numbers generated using cryptographic sources.
 
@@ -103,7 +103,7 @@ if (probability(0.5)) console.log(true); // There is a 50% chance that true will
 #### Time
 
 ```js
-import { wait } from "utility-kit";
+import { wait } from "utility-kit/time";
 
 async function test(time) {
   const ref = Date.now();
@@ -117,7 +117,7 @@ test(1000).then((time) => console.log(time)); // ~1000
 #### Utility
 
 ```js
-import { probability, retry, retryAsync, tryCatch, tryCatchAsync } from "utility-kit";
+import { probability, retry, retryAsync, tryCatch, tryCatchAsync } from "utility-kit/utility";
 
 // For safely handling errors without try-catch blocks manually
 // Returns a structured Result object with { success, data, error }

@@ -1,4 +1,9 @@
-# 0.7.2 (19-11-2025)
+# 0.8.0 (20-11-2025)
+
+- **added:** subpath exports for cleaner module imports.
+- **improved:** environment check for `crypto.getRandomValues` for broader compatibility.
+
+## 0.7.2 (19-11-2025)
 
 - **fix:** Add missing await for onError in retryAsync error branch.
 

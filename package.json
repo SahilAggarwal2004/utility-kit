@@ -1,6 +1,6 @@
 {
   "name": "utility-kit",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "description": "An easy to use library that provides miscellaneous but very useful functions that are commonly used in most javascript projects.",
   "license": "MIT",
   "author": "Sahil Aggarwal",
@@ -16,7 +16,27 @@
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.cjs"
+      "require": "./dist/cjs/index.js"
+    },
+    "./cache": {
+      "import": "./dist/esm/cache.js",
+      "require": "./dist/cjs/cache.js"
+    },
+    "./math": {
+      "import": "./dist/esm/math.js",
+      "require": "./dist/cjs/math.js"
+    },
+    "./random": {
+      "import": "./dist/esm/random.js",
+      "require": "./dist/cjs/random.js"
+    },
+    "./time": {
+      "import": "./dist/esm/time.js",
+      "require": "./dist/cjs/time.js"
+    },
+    "./utility": {
+      "import": "./dist/esm/utility.js",
+      "require": "./dist/cjs/utility.js"
     }
   },
   "main": "dist/cjs/index.cjs",

@@ -6,7 +6,7 @@ const animals = ["Albatross", "Alligator", "Ant", "Antelope", "Ape", "Baboon", "
 
 let randomBytes: ((n: number) => Uint8Array) | undefined;
 
-if (typeof crypto?.getRandomValues === "function") {
+if (typeof crypto === "object" && typeof crypto.getRandomValues === "function") {
   randomBytes = (n) => crypto.getRandomValues(new Uint8Array(n));
 }
 
