@@ -117,7 +117,8 @@ test(1000).then((time) => console.log(time)); // ~1000
 #### Utility
 
 ```js
-import { probability, retry, retryAsync, tryCatch, tryCatchAsync } from "utility-kit/utility";
+import { retry, retryAsync, tryCatch, tryCatchAsync } from "utility-kit/utility";
+import { probability } from "utility-kit/random";
 
 // For safely handling errors without try-catch blocks manually
 // Returns a structured Result object with { success, data, error }
