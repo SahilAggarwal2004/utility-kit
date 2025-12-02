@@ -77,3 +77,12 @@ export async function tryCatchAsync<T, E = Error>(callback: () => Promise<T>): P
     return { success: false, data: null, error: error as E };
   }
 }
+
+export function withTimeout<T>(promise: Promise<T>, timeout = 5000) {
+  let timeoutId: ReturnType<typeof setTimeout>;
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    timeoutId = setTimeout(() => reject(new Error(`Operation timed out after ${timeout}ms`)), timeout);
+  });
+
+  return Promise.race([promise.finally(() => clearTimeout(timeoutId)), timeoutPromise]) as Promise<T>;
+}

@@ -190,4 +190,15 @@ await retryAsync(async () => await uploadFile(file), {
   initialDelay: 1000,
   delayIncrement: 500,
 });
+
+// Timeout wrapper for async Promises
+// Rejects if the Promise does not resolve within the timeout duration
+try {
+  const data = await withTimeout(fetch("/api/data"), 3000); // Will timeout after 3000ms
+  console.log("Fetched:", data);
+} catch (err) {
+  console.error("Timeout:", err.message);
+}
+
+await withTimeout(fetch("/api/data")); // Default timeout is 5000ms
 ```

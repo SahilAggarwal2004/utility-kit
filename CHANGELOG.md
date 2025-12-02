@@ -1,4 +1,9 @@
-# 0.8.0 (20-11-2025)
+# 0.9.0 (02-12-2025)
+
+- **added:** `withTimeout` utility to reject a promise if it doesn’t resolve within a specified duration. See [usage](https://www.npmjs.com/package/utility-kit#utility)
+- **changed:** `wait` function now returns `Promise<void>` instead of `Promise<never>` for improved type consistency.
+
+## 0.8.0 (20-11-2025)
 
 - **added:** subpath exports for cleaner module imports.
 - **improved:** environment check for `crypto.getRandomValues` for broader compatibility.
