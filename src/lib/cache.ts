@@ -1,6 +1,6 @@
 const cacheKey = Symbol();
 
-export function memoize<Args extends readonly unknown[], Result>(fn: (...args: Args) => Result) {
+export function memoize<Args extends readonly unknown[], Result>(fn: (...args: Args) => Result): (...args: Args) => Result {
   const cache = new Map();
 
   return (...args: Args): Result => {

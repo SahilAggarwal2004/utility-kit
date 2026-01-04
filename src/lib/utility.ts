@@ -1,29 +1,5 @@
 import { wait } from "./time.js";
-
-export type Failure<E> = {
-  success: false;
-  data: null;
-  error: E;
-};
-
-export type Success<T> = {
-  success: true;
-  data: T;
-  error: null;
-};
-
-export type Result<T, E = Error> = Success<T> | Failure<E>;
-
-export type RetryOptions<T, E = Error> = {
-  retries?: number;
-  onSuccess?: ((result: T) => any) | null;
-  onError?: ((error: E) => any) | null;
-};
-
-export type RetryAsyncOptions<T, E = Error> = RetryOptions<T, E> & {
-  initialDelay?: number;
-  delayIncrement?: number;
-};
+import type { Result, RetryAsyncOptions, RetryOptions } from "../types.js";
 
 export function retry<T, E = Error>(callback: () => T, { retries = 3, ...options }: RetryOptions<T, E> = {}): Result<T, E> {
   const { onSuccess, onError } = options;
@@ -78,7 +54,7 @@ export async function tryCatchAsync<T, E = Error>(callback: () => Promise<T>): P
   }
 }
 
-export function withTimeout<T>(promise: Promise<T>, timeout = 5000) {
+export function withTimeout<T>(promise: Promise<T>, timeout = 5000): Promise<T> {
   let timeoutId: ReturnType<typeof setTimeout>;
   const timeoutPromise = new Promise<never>((_, reject) => {
     timeoutId = setTimeout(() => reject(new Error(`Operation timed out after ${timeout}ms`)), timeout);

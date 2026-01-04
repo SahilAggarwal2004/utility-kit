@@ -19,27 +19,28 @@
       "require": "./dist/cjs/index.cjs"
     },
     "./cache": {
-      "import": "./dist/esm/cache.js",
-      "require": "./dist/cjs/cache.cjs"
+      "import": "./dist/esm/lib/cache.js",
+      "require": "./dist/cjs/lib/cache.cjs"
     },
     "./math": {
-      "import": "./dist/esm/math.js",
-      "require": "./dist/cjs/math.cjs"
+      "import": "./dist/esm/lib/math.js",
+      "require": "./dist/cjs/lib/math.cjs"
     },
     "./random": {
-      "import": "./dist/esm/random.js",
-      "require": "./dist/cjs/random.cjs"
+      "import": "./dist/esm/lib/random.js",
+      "require": "./dist/cjs/lib/random.cjs"
     },
     "./time": {
-      "import": "./dist/esm/time.js",
-      "require": "./dist/cjs/time.cjs"
+      "import": "./dist/esm/lib/time.js",
+      "require": "./dist/cjs/lib/time.cjs"
     },
     "./types": "./dist/esm/types.js",
     "./utility": {
-      "import": "./dist/esm/utility.js",
-      "require": "./dist/cjs/utility.cjs"
+      "import": "./dist/esm/lib/utility.js",
+      "require": "./dist/cjs/lib/utility.cjs"
     }
   },
+  "main": "dist/esm/index.js",
   "files": [
     "dist"
   ],
