@@ -1,3 +1,15 @@
+# Changelog
+
+## [0.9.1](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.9.0...v0.9.1) (2026-01-04)
+
+### Chores
+
+* Add release-it for automated versioning and changelog.  ([0b0afbb](https://github.com/SahilAggarwal2004/utility-kit/commit/0b0afbba399a659920e9b45143539b3fd2106942))
+
+### Code Refactoring
+
+* Move source files into `src/lib`.  ([c4e3a49](https://github.com/SahilAggarwal2004/utility-kit/commit/c4e3a49fb25f2f63c8469855cb276fdde7d62be9))
+
 ## 0.9.0 (2025-12-02)
 
 * **added:** `withTimeout` utility to reject a promise if it doesn’t resolve within a specified duration. See [usage](https://www.npmjs.com/package/utility-kit#utility)
