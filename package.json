@@ -3,7 +3,7 @@
   "version": "0.9.0",
   "description": "An easy to use library that provides miscellaneous but very useful functions that are commonly used in most javascript projects.",
   "license": "MIT",
-  "author": "Sahil Aggarwal",
+  "author": "Sahil Aggarwal <aggarwalsahil2004@gmail.com>",
   "homepage": "https://github.com/SahilAggarwal2004/utility-kit#readme",
   "repository": {
     "type": "git",
@@ -16,44 +16,49 @@
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "require": "./dist/cjs/index.cjs"
     },
     "./cache": {
       "import": "./dist/esm/cache.js",
-      "require": "./dist/cjs/cache.js"
+      "require": "./dist/cjs/cache.cjs"
     },
     "./math": {
       "import": "./dist/esm/math.js",
-      "require": "./dist/cjs/math.js"
+      "require": "./dist/cjs/math.cjs"
     },
     "./random": {
       "import": "./dist/esm/random.js",
-      "require": "./dist/cjs/random.js"
+      "require": "./dist/cjs/random.cjs"
     },
     "./time": {
       "import": "./dist/esm/time.js",
-      "require": "./dist/cjs/time.js"
+      "require": "./dist/cjs/time.cjs"
     },
+    "./types": "./dist/esm/types.js",
     "./utility": {
       "import": "./dist/esm/utility.js",
-      "require": "./dist/cjs/utility.js"
+      "require": "./dist/cjs/utility.cjs"
     }
   },
-  "main": "dist/cjs/index.cjs",
-  "module": "dist/esm/index.js",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "pnpm i && pnpm run compile",
     "compile": "tsup",
-    "prettier": "prettier-package-json --write package.json"
+    "dev": "tsup --watch",
+    "dry-release": "release-it --ci --dry-run",
+    "prettier": "prettier-package-json --write package.json",
+    "pub": "pnpm login && pnpm publish",
+    "release": "release-it --ci"
   },
   "sideEffects": false,
   "types": "dist/esm/index.d.ts",
   "devDependencies": {
+    "@release-it/conventional-changelog": "^10.0.4",
     "@types/node": "^24.10.1",
     "prettier-package-json": "^2.8.0",
+    "release-it": "^19.2.2",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   },
