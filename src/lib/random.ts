@@ -25,7 +25,7 @@ export function random(n: number = 8): number {
   return Number(value) / Number(max);
 }
 
-export const randomElement = <T>(array: T[]): T => array[randomNumber(0, array.length - 1)];
+export const randomElement = <T extends ArrayLike<unknown>>(arr: T): T[number] => arr[randomNumber(0, arr.length - 1)];
 
 export const randomAdjective = (): string => randomElement(adjectives);
 

@@ -88,8 +88,9 @@ console.log(random(16)); // Generates a truly random number using 16 bytes, prov
 console.log(randomNumber(10, 20)); // Any number between 10 and 20 (both numbers included) will be logged
 
 console.log(randomElement([3, 2, 10, 7, 8])); // Any one random element of the array will be logged
+console.log(randomElement("abcdef")); // Randomly picks a character from a string (works with any ArrayLike)
 
-console.log(randomAdjective()); // Any one adjective from a list of 25 adjective will be logged
+console.log(randomAdjective()); // Any one adjective from a list of 25 adjectives will be logged
 
 console.log(randomAnimal()); // Any one animal from a list of 200 animals will be logged
 
