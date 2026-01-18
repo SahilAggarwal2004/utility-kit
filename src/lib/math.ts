@@ -1,3 +1,7 @@
-export const minimumNumber = (array: number[]): number => Math.min(...array);
+export function maximumNumber(array: number[]): number {
+  return Math.max(...array);
+}
 
-export const maximumNumber = (array: number[]): number => Math.max(...array);
+export function minimumNumber(array: number[]): number {
+  return Math.min(...array);
+}

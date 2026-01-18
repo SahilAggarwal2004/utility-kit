@@ -1,6 +1,28 @@
-import { adjectives, animals } from "../constants";
+import { adjectives, animals, characters } from "../constants";
 
-export const randomNumber = (min: number = 0, max: number = Number.MAX_SAFE_INTEGER): number => min + Math.floor(random() * (max - min + 1));
+const isCryptoUnavailable = typeof crypto !== "object" || typeof crypto.getRandomValues !== "function";
+
+export function generateID(size: number = 16): string {
+  let id = "";
+
+  if (isCryptoUnavailable) {
+    for (let i = 0; i < size; i++) id += randomElement(characters);
+    return id;
+  }
+
+  const max = Math.floor(256 / characters.length) * characters.length;
+  const bytes = new Uint8Array(size);
+
+  while (id.length < size) {
+    crypto.getRandomValues(bytes);
+    for (let i = 0; i < bytes.length && id.length < size; i++) {
+      const b = bytes[i];
+      if (b < max) id += characters[b % characters.length];
+    }
+  }
+
+  return id;
+}
 
 export function generateOTP(digits: number = 4): string {
   digits = Math.min(digits, 20);
@@ -10,10 +32,12 @@ export function generateOTP(digits: number = 4): string {
   return number;
 }
 
-export const probability = (p: number): boolean => !!p && random() <= p;
+export function probability(p: number): boolean {
+  return !!p && random() <= p;
+}
 
 export function random(n: number = 8): number {
-  if (typeof crypto !== "object" || typeof crypto.getRandomValues !== "function") return Math.random();
+  if (isCryptoUnavailable) return Math.random();
 
   n = Math.max(1, Math.min(n, 127));
   let value = 0n;
@@ -25,10 +49,22 @@ export function random(n: number = 8): number {
   return Number(value) / Number(max);
 }
 
-export const randomElement = <T extends ArrayLike<unknown>>(arr: T): T[number] => arr[randomNumber(0, arr.length - 1)];
+export function randomAdjective(): string {
+  return randomElement(adjectives);
+}
 
-export const randomAdjective = (): string => randomElement(adjectives);
+export function randomAnimal(): string {
+  return randomElement(animals);
+}
 
-export const randomAnimal = (): string => randomElement(animals);
+export function randomElement<T extends ArrayLike<unknown>>(arr: T): T[number] {
+  return arr[randomNumber(0, arr.length - 1)];
+}
 
-export const randomName = (separator: string = " "): string => `${randomAdjective()}${separator}${randomAnimal()}`;
+export function randomName(separator: string = " "): string {
+  return `${randomAdjective()}${separator}${randomAnimal()}`;
+}
+
+export function randomNumber(min: number = 0, max: number = Number.MAX_SAFE_INTEGER): number {
+  return min + Math.floor(random() * (max - min + 1));
+}

@@ -1,4 +1,4 @@
-// utility.ts
+// lib/utility.ts
 export type Failure<E> = {
   success: false;
   data: null;

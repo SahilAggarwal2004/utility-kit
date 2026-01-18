@@ -5,11 +5,7 @@ An easy to use library that provides miscellaneous but very useful functions tha
 ## Features
 
 - Function memoization
-- Generate random number
-- Pick random element from array
-- Generate random name
-- Generate OTP
-- Probability
+- Random utilities (probability, random number, names, OTP, IDs, random element from array or string)
 - Minimum/Maximum element of an array
 - Wait/Sleep function
 - TryCatch wrappers for safe and structured error handling
@@ -72,33 +68,35 @@ memoizedOperation(5, 6, 7); // "Computing..." logged, returns 37
 import { maximumNumber, minimumNumber } from "utility-kit/math";
 
 const array = [89, 6, 99, 2, 50, 10];
-console.log(minimumNumber(array)); // 2
 console.log(maximumNumber(array)); // 99
+console.log(minimumNumber(array)); // 2
 ```
 
 #### Random
 
 ```js
-import { generateOTP, probability, random, randomAdjective, randomAnimal, randomElement, randomName, randomNumber } from "utility-kit/random";
+import { generateID, generateOTP, probability, random, randomAdjective, randomAnimal, randomElement, randomName, randomNumber } from "utility-kit/random";
+
+console.log(generateID()); // Generates a 16-character random ID using alphanumeric + symbols
+console.log(generateID(32)); // Generates a 32-character random ID
+
+console.log(generateOTP(6)); // A 6-digit string OTP will be logged
+
+if (probability(0.5)) console.log(true); // There is a 50% chance that true will be logged
 
 console.log(random()); // A drop-in and secure replacement for Math.random(), offering truly random numbers generated using cryptographic sources.
-
 console.log(random(16)); // Generates a truly random number using 16 bytes, providing a wider range and higher precision. The number of bytes ranges from 1-127 with 8 being default.
-
-console.log(randomNumber(10, 20)); // Any number between 10 and 20 (both numbers included) will be logged
-
-console.log(randomElement([3, 2, 10, 7, 8])); // Any one random element of the array will be logged
-console.log(randomElement("abcdef")); // Randomly picks a character from a string (works with any ArrayLike)
 
 console.log(randomAdjective()); // Any one adjective from a list of 25 adjectives will be logged
 
 console.log(randomAnimal()); // Any one animal from a list of 200 animals will be logged
 
+console.log(randomElement([3, 2, 10, 7, 8])); // Any one random element of the array will be logged
+console.log(randomElement("abcdef")); // Randomly picks a character from a string (works with any ArrayLike)
+
 console.log(randomName("-")); // A combination of randomAdjective() and randomAnimal() will be logged with a "-" separator in between. Default separator is " "
 
-console.log(generateOTP(6)); // A 6 digit string OTP will be logged
-
-if (probability(0.5)) console.log(true); // There is a 50% chance that true will be logged
+console.log(randomNumber(10, 20)); // Any number between 10 and 20 (both numbers included) will be logged
 ```
 
 #### Time
@@ -118,19 +116,8 @@ test(1000).then((time) => console.log(time)); // ~1000
 #### Utility
 
 ```js
-import { retry, retryAsync, tryCatch, tryCatchAsync } from "utility-kit/utility";
 import { probability } from "utility-kit/random";
-
-// For safely handling errors without try-catch blocks manually
-// Returns a structured Result object with { success, data, error }
-const result = tryCatch(() => mightThrow());
-if (result.success) console.log("Success:", result.data);
-else console.error("Error:", result.error);
-
-// Async version
-const asyncResult = await tryCatchAsync(async () => await mightThrowAsync());
-if (asyncResult.success) console.log("Async success:", asyncResult.data);
-else console.error("Async error:", asyncResult.error);
+import { retry, retryAsync, tryCatch, tryCatchAsync } from "utility-kit/utility";
 
 // Some error-prone callback
 function errorProne() {
@@ -191,6 +178,17 @@ await retryAsync(async () => await uploadFile(file), {
   initialDelay: 1000,
   delayIncrement: 500,
 });
+
+// For safely handling errors without try-catch blocks manually
+// Returns a structured Result object with { success, data, error }
+const result = tryCatch(() => mightThrow());
+if (result.success) console.log("Success:", result.data);
+else console.error("Error:", result.error);
+
+// Async version
+const asyncResult = await tryCatchAsync(async () => await mightThrowAsync());
+if (asyncResult.success) console.log("Async success:", asyncResult.data);
+else console.error("Async error:", asyncResult.error);
 
 // Timeout wrapper for async Promises
 // Rejects if the Promise does not resolve within the timeout duration
