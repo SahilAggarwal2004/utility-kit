@@ -202,3 +202,7 @@ try {
 
 await withTimeout(fetch("/api/data")); // Default timeout is 5000ms
 ```
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
