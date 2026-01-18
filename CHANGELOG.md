@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.10.0](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.9.1...v0.10.0) (2026-01-18)
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade tsconfig target from es2016 to es2020
+
+### Chores
+
+* **deps:** Update @types/node and release-it.  ([f28b627](https://github.com/SahilAggarwal2004/utility-kit/commit/f28b627c042f72d560810a02070ab42d44f026fc))
+* Upgrade tsconfig target from es2016 to es2020.  ([ae10f3f](https://github.com/SahilAggarwal2004/utility-kit/commit/ae10f3f6456116c92bef634c0df69cc00c33e917))
+
+### Features
+
+* **random:** Add cryptographically secure generateID helper.  ([418dc80](https://github.com/SahilAggarwal2004/utility-kit/commit/418dc80574ad7c29195405090bbdb8eefdc13a69))
+* **random:** Support ArrayLike inputs in `randomElement`.  ([dcf96c7](https://github.com/SahilAggarwal2004/utility-kit/commit/dcf96c7ca46c3f4080442e4bb98e162fb0729f62))
+
 ## [0.9.1](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.9.0...v0.9.1) (2026-01-04)
 
 ### Chores
