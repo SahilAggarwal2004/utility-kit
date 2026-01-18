@@ -57,9 +57,9 @@
   "types": "dist/esm/index.d.ts",
   "devDependencies": {
     "@release-it/conventional-changelog": "^10.0.4",
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.0.9",
     "prettier-package-json": "^2.8.0",
-    "release-it": "^19.2.2",
+    "release-it": "^19.2.3",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   },
