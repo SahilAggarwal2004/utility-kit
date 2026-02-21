@@ -16,31 +16,38 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
     },
     "./cache": {
       "import": "./dist/lib/cache.mjs",
-      "require": "./dist/lib/cache.cjs"
+      "require": "./dist/lib/cache.cjs",
+      "types": "./dist/lib/cache.d.ts"
     },
     "./math": {
       "import": "./dist/lib/math.mjs",
-      "require": "./dist/lib/math.cjs"
+      "require": "./dist/lib/math.cjs",
+      "types": "./dist/lib/math.d.ts"
     },
     "./random": {
       "import": "./dist/lib/random.mjs",
-      "require": "./dist/lib/random.cjs"
+      "require": "./dist/lib/random.cjs",
+      "types": "./dist/lib/random.d.ts"
     },
     "./time": {
       "import": "./dist/lib/time.mjs",
-      "require": "./dist/lib/time.cjs"
+      "require": "./dist/lib/time.cjs",
+      "types": "./dist/lib/time.d.ts"
     },
     "./types": {
       "import": "./dist/types.mjs",
-      "require": "./dist/types.cjs"
+      "require": "./dist/types.cjs",
+      "types": "./dist/types.d.ts"
     },
     "./utility": {
       "import": "./dist/lib/utility.mjs",
-      "require": "./dist/lib/utility.cjs"
+      "require": "./dist/lib/utility.cjs",
+      "types": "./dist/lib/utility.d.ts"
     }
   },
   "files": [
