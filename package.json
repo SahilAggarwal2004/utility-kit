@@ -15,52 +15,54 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.cjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     },
     "./cache": {
-      "import": "./dist/esm/lib/cache.js",
-      "require": "./dist/cjs/lib/cache.cjs"
+      "import": "./dist/lib/cache.mjs",
+      "require": "./dist/lib/cache.cjs"
     },
     "./math": {
-      "import": "./dist/esm/lib/math.js",
-      "require": "./dist/cjs/lib/math.cjs"
+      "import": "./dist/lib/math.mjs",
+      "require": "./dist/lib/math.cjs"
     },
     "./random": {
-      "import": "./dist/esm/lib/random.js",
-      "require": "./dist/cjs/lib/random.cjs"
+      "import": "./dist/lib/random.mjs",
+      "require": "./dist/lib/random.cjs"
     },
     "./time": {
-      "import": "./dist/esm/lib/time.js",
-      "require": "./dist/cjs/lib/time.cjs"
+      "import": "./dist/lib/time.mjs",
+      "require": "./dist/lib/time.cjs"
     },
-    "./types": "./dist/esm/types.js",
+    "./types": {
+      "import": "./dist/types.mjs",
+      "require": "./dist/types.cjs"
+    },
     "./utility": {
-      "import": "./dist/esm/lib/utility.js",
-      "require": "./dist/cjs/lib/utility.cjs"
+      "import": "./dist/lib/utility.mjs",
+      "require": "./dist/lib/utility.cjs"
     }
   },
-  "main": "dist/esm/index.js",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "pnpm i && pnpm run compile",
-    "compile": "tsup",
-    "dev": "tsup --watch",
+    "compile": "tsdown",
+    "dev": "tsdown --watch",
     "dry-release": "release-it --ci --dry-run",
-    "prettier": "prettier-package-json --write package.json",
+    "prettier": "prettier-package-json --write package.mjson",
     "pub": "pnpm login && pnpm publish",
     "release": "release-it --ci"
   },
   "sideEffects": false,
-  "types": "dist/esm/index.d.ts",
+  "types": "./dist/index.d.ts",
   "devDependencies": {
     "@release-it/conventional-changelog": "^10.0.5",
     "@types/node": "^25.3.0",
     "prettier-package-json": "^2.8.0",
     "release-it": "^19.2.4",
-    "tsup": "^8.5.1",
+    "tsdown": "^0.20.3",
     "typescript": "^5.9.3"
   },
   "keywords": [

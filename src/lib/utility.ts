@@ -1,5 +1,5 @@
-import { wait } from "./time.js";
-import type { Result, RetryAsyncOptions, RetryOptions } from "../types.js";
+import { wait } from "./time";
+import type { Result, RetryAsyncOptions, RetryOptions } from "../types";
 
 export function retry<T, E = Error>(callback: () => T, { retries = 3, ...options }: RetryOptions<T, E> = {}): Result<T, E> {
   const { onSuccess, onError } = options;
