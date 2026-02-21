@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.10.2](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.10.1...v0.10.2) (2026-02-21)
+
+### Bug Fixes
+
+* **types:** Expose declaration files via exports map.  ([1aa1a00](https://github.com/SahilAggarwal2004/utility-kit/commit/1aa1a0016fd3c11dd526925cdd2b0e51cabc93d8))
+
 ## [0.10.1](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.10.0...v0.10.1) (2026-02-21)
 
 ### Chores

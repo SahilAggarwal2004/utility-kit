@@ -1,6 +1,6 @@
 {
   "name": "utility-kit",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "An easy to use library that provides miscellaneous but very useful functions that are commonly used in most javascript projects.",
   "license": "MIT",
   "author": "Sahil Aggarwal <aggarwalsahil2004@gmail.com>",
