@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.10.1](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.10.0...v0.10.1) (2026-02-21)
+
+### Chores
+
+* **deps:** Update @release-it/conventional-changelog, @types/node and release-it.  ([3f220f0](https://github.com/SahilAggarwal2004/utility-kit/commit/3f220f03f5e1fe7a4d16beb42ba8dd89b8b5bd76))
+
+### Build System
+
+* Migrate from tsup to tsdown for library bundling.  ([7aa9ecd](https://github.com/SahilAggarwal2004/utility-kit/commit/7aa9ecd1f88347449bab6df431a006576b8d54ee))
+
 ## [0.10.0](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.9.1...v0.10.0) (2026-01-18)
 
 ### ⚠ BREAKING CHANGES
