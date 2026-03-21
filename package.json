@@ -65,11 +65,11 @@
   "sideEffects": false,
   "types": "./dist/index.d.ts",
   "devDependencies": {
-    "@release-it/conventional-changelog": "^10.0.5",
-    "@types/node": "^25.3.1",
+    "@release-it/conventional-changelog": "^10.0.6",
+    "@types/node": "^25.5.0",
     "prettier-package-json": "^2.8.0",
     "release-it": "^19.2.4",
-    "tsdown": "^0.20.3",
+    "tsdown": "^0.21.4",
     "typescript": "^5.9.3"
   },
   "keywords": [
