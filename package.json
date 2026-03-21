@@ -58,7 +58,7 @@
     "compile": "tsdown",
     "dev": "tsdown --watch",
     "dry-release": "release-it --ci --dry-run",
-    "prettier": "prettier-package-json --write package.mjson",
+    "prettier": "prettier-package-json --write package.json",
     "pub": "pnpm login && pnpm publish",
     "release": "release-it --ci"
   },
@@ -85,5 +85,8 @@
     "utility-functions",
     "utility-kit",
     "utils"
-  ]
+  ],
+  "engines": {
+    "node": ">=16"
+  }
 }
