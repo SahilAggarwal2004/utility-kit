@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.10.3](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.10.2...v0.10.3) (2026-03-21)
+
+### Chores
+
+* Add Node.js >=16 engine requirement.  ([be86417](https://github.com/SahilAggarwal2004/utility-kit/commit/be8641704bbc2ed07b472890857d2df37a87b09b))
+* **deps:** Update @release-it/conventional-changelog, @types/node and tsdown.  ([6050e2d](https://github.com/SahilAggarwal2004/utility-kit/commit/6050e2d64daaad0460cb5e8659fc4f6ca88dd73b))
+* **deps:** Update @types/node.  ([7e67a12](https://github.com/SahilAggarwal2004/utility-kit/commit/7e67a12faa432a43594a5d06fdb014ad41031580))
+
 ## [0.10.2](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.10.1...v0.10.2) (2026-02-21)
 
 ### Bug Fixes
