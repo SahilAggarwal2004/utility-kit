@@ -1,4 +1,4 @@
-import { adjectives, animals, characters } from "../constants";
+import { adjectives, animals, characters } from "@/constants";
 
 const isCryptoUnavailable = typeof crypto !== "object" || typeof crypto.getRandomValues !== "function";
 
@@ -16,7 +16,7 @@ export function generateID(size: number = 16): string {
   while (id.length < size) {
     crypto.getRandomValues(bytes);
     for (let i = 0; i < bytes.length && id.length < size; i++) {
-      const b = bytes[i];
+      const b = bytes[i]!;
       if (b < max) id += characters[b % characters.length];
     }
   }
