@@ -1,6 +1,7 @@
 import { adjectives, animals, characters } from "@/constants";
 
-const isCryptoUnavailable = typeof crypto !== "object" || typeof crypto.getRandomValues !== "function";
+const crypto = globalThis.crypto;
+const isCryptoUnavailable = !crypto?.getRandomValues;
 
 export function generateID(size: number = 16): string {
   let id = "";
@@ -33,7 +34,7 @@ export function generateOTP(digits: number = 4): string {
 }
 
 export function probability(p: number): boolean {
-  return !!p && random() <= p;
+  return p > 0 && random() < p;
 }
 
 export function random(n: number = 8): number {

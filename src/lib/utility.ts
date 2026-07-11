@@ -1,7 +1,15 @@
 import { wait } from "@/lib/time";
 import type { Result, RetryAsyncOptions, RetryOptions } from "@/types";
 
-export function retry<T, E = Error>(callback: () => T, { retries = 3, ...options }: RetryOptions<T, E> = {}): Result<T, E> {
+function normalizeError(error: unknown): Error {
+  if (error instanceof Error) return error;
+
+  const message = typeof error === "object" && error !== null ? safeStringify(error) : String(error);
+
+  return new Error(message, { cause: error });
+}
+
+export function retry<T, E extends Error = Error>(callback: () => T, { retries = 3, ...options }: RetryOptions<T, E> = {}): Result<T, E> {
   const { onSuccess, onError } = options;
   const result = tryCatch<T, E>(callback);
 
@@ -17,7 +25,10 @@ export function retry<T, E = Error>(callback: () => T, { retries = 3, ...options
   return result;
 }
 
-export async function retryAsync<T, E = Error>(callback: () => Promise<T>, { retries = 3, initialDelay = 0, ...options }: RetryAsyncOptions<T, E> = {}): Promise<Result<T, E>> {
+export async function retryAsync<T, E extends Error = Error>(
+  callback: () => Promise<T>,
+  { retries = 3, initialDelay = 0, ...options }: RetryAsyncOptions<T, E> = {},
+): Promise<Result<T, E>> {
   const { delayIncrement = 0, onSuccess, onError } = options;
   const result = await tryCatchAsync<T, E>(callback);
 
@@ -36,21 +47,28 @@ export async function retryAsync<T, E = Error>(callback: () => Promise<T>, { ret
   return result;
 }
 
-export function tryCatch<T, E = Error>(callback: () => T): Result<T, E> {
+function safeStringify(value: unknown): string {
+  const { success, data } = tryCatch(() => JSON.stringify(value));
+  if (success) return data;
+
+  return "[Unserializable error object]";
+}
+
+export function tryCatch<T, E extends Error = Error>(callback: () => T): Result<T, E> {
   try {
     const data = callback();
     return { success: true, data, error: null };
   } catch (error) {
-    return { success: false, data: null, error: error as E };
+    return { success: false, data: null, error: normalizeError(error) as E };
   }
 }
 
-export async function tryCatchAsync<T, E = Error>(callback: () => Promise<T>): Promise<Result<T, E>> {
+export async function tryCatchAsync<T, E extends Error = Error>(callback: () => Promise<T>): Promise<Result<T, E>> {
   try {
     const data = await callback();
     return { success: true, data, error: null };
   } catch (error) {
-    return { success: false, data: null, error: error as E };
+    return { success: false, data: null, error: normalizeError(error) as E };
   }
 }
 
