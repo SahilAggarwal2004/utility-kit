@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.12.0](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.11.0...v0.12.0) (2026-07-11)
+
+### ⚠ BREAKING CHANGES
+
+* Constrain `Result`/`RetryOptions` types to Error and normalize non-Error throws
+
+### Features
+
+* Constrain `Result`/`RetryOptions` types to Error and normalize non-Error throws.  ([5aa242d](https://github.com/SahilAggarwal2004/utility-kit/commit/5aa242d680cd7e1b30529ca026c3562fdc3bcc10))
+
 ## [0.11.0](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.10.3...v0.11.0) (2026-07-11)
 
 ### Chores
