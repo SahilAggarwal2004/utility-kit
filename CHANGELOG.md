@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.11.0](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.10.3...v0.11.0) (2026-07-11)
+
+### Chores
+
+* **deps:** Update @release-it/conventional-changelog, @types/node, release-it, tsdown and typescript.  ([65c67f7](https://github.com/SahilAggarwal2004/utility-kit/commit/65c67f7b2a829ce56599209afdfbdb41eca79ff1))
+
+### Features
+
+* Add @ianvs/prettier-plugin-sort-imports.  ([957cb77](https://github.com/SahilAggarwal2004/utility-kit/commit/957cb77204843b14a465154ed38741adbdf05f26))
+
+### Bug Fixes
+
+* **types:** Import types entry to preserve type-only exports.  ([a5dd2d8](https://github.com/SahilAggarwal2004/utility-kit/commit/a5dd2d882f567ab84039679939b2c6102da30ae0))
+
 ## [0.10.3](https://github.com/SahilAggarwal2004/utility-kit/compare/v0.10.2...v0.10.3) (2026-03-21)
 
 ### Chores
