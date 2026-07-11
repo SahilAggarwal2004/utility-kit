@@ -1,3 +1,5 @@
+import "@/types";
+
 export * from "@/lib/cache";
 export * from "@/lib/math";
 export * from "@/lib/random";
